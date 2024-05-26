@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSpotter - Gallery</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* background-image: url('galleryi.jpg');
+            background-size: cover; */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 0px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .gallery-container {
+            /* background-color: rgba(160, 157, 157, 0.3); */
+            background-image: url('galleryi.jpg');
+            background-size: cover;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 10px auto;
+            /* max-width: 1000px; */
+            width: 100%;
+        }
+
+        .heading {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .search-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.search-button:hover {
+    background-color: #555;
+}
+
+.search-form {
+    margin-bottom: 20px;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-form input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-form input[type="submit"]:hover {
+    background-color: #555;
+}
+
+        .species-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .species-card {
+    position: relative;
+    overflow: hidden;
+    width: calc(25% - 20px);
+    margin-bottom: 20px;
+    text-align: center;
+        }
+
+.species-overlay {
+    position: relative;
+}
+
+.species-overlay img {
+    width: 90%;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.species-overlay:hover img {
+    transform: scale(1.1);
+}
+
+.species-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.species-overlay:hover .species-info {
+    opacity: 1;
+}
+
+.species-link button {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.species-link button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.highlighted {
+    border: 2px solid #ffcc00; /* Yellow border */
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5); /* Yellow shadow */
+    border-width: 10px;
+}
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .socials {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><img src="BIOSPOTTER.jpg" alt="BioSpotter Logo"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="species.html">Species</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="discussion.html">Discussion</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#signin">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="gallery-container">
+        <div class="heading">Gallery</div>
+
+            <p>Explore species from fierce predators to delicate blooms.</p>
+            <form class="search-form" onsubmit="searchSpecies(event)">
+                <input type="text" id="searchInput" placeholder="Enter species name...">
+                <input type="submit" value="Search">
+            </form>
+            <div class="species-gallery">
+                <!-- Species cards here -->
+            </div>
+            <p id="searchResult"></p>
+        </div>
+        
+        <div class="species-gallery">
+            <!-- Sample Flora Species -->
+            <div class="species-card" id="tiger">
+                <a href="https://en.wikipedia.org/wiki/Tiger" target="_blank">
+                    <div class="species-overlay">
+                        <img src="tiger.jpg" alt="Tiger">
+                        <div class="species-info">
+                            <div class="species-name">Tiger</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="species-card">
+                <a href="https://en.wikipedia.org/wiki/Lion" target="_blank">
+                    <div class="species-overlay">
+                        <img src="lion.jpg" alt="Lion">
+                        <div class="species-info">
+                            <div class="species-name">Lion</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="species-card">
+                <a href="https://en.wikipedia.org/wiki/Wolf" target="_blank">
+                    <div class="species-overlay">
+                        <img src="wolf.jpg" alt="Wolf">
+                        <div class="species-info">
+                            <div class="species-name">Wolf</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="species-card">
+                <a href="https://en.wikipedia.org/wiki/Deer" target="_blank">
+                    <div class="species-overlay">
+                        <img src="deer.jpg" alt="Deer">
+                        <div class="species-info">
+                            <div class="species-name">Deer</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="species-card" id="lotus">
+                <a href="https://en.wikipedia.org/wiki/Lotus" target="_blank">
+                    <div class="species-overlay">
+                        <img src="lotus.jpg" alt="Lotus">
+                        <div class="species-info">
+                            <div class="species-name">Lotus</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="species-card">
+                <a href="https://en.wikipedia.org/wiki/Eucalyptus" target="_blank">
+                    <div class="species-overlay">
+                        <img src="eucalyptus.jpg" alt="Eucalyptus">
+                        <div class="species-info">
+                            <div class="species-name">Eucalyptus</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="species-card">
+                <a href="https://en.wikipedia.org/wiki/Tulip" target="_blank">
+                    <div class="species-overlay">
+                        <img src="tulip.jpg" alt="Tulip">
+                        <div class="species-info">
+                            <div class="species-name">Tulip</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="species-card">
+                <a href="https://en.wikipedia.org/wiki/Rose" target="_blank">
+                    <div class="species-overlay">
+                        <img src="rose.jpg" alt="Rise">
+                        <div class="species-info">
+                            <div class="species-name">Rose</div>
+                            <div class="species-link"><button>Learn More</button></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <p>&copy; 2024 BioSpotter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to simulate searching for species
+        function searchSpecies(event) {
+    event.preventDefault();
+    var searchInput = document.getElementById('searchInput').value.toLowerCase();
+    var speciesList = ['tiger', 'lion', 'wolf', 'lotus', 'eucalyptus', 'tulip'];
+    var searchResult = document.getElementById('searchResult');
+    var matchedSpecies = [];
+    
+    speciesList.forEach(function(species) {
+        if (species.includes(searchInput)) {
+            matchedSpecies.push(species);
+        }
+    });
+
+    if (matchedSpecies.length > 0) {
+        searchResult.innerText = 'Matching species: ' + matchedSpecies.join(', ');
+        // Remove highlight from previously matched species
+        var highlightedSpecies = document.querySelectorAll('.highlighted');
+        highlightedSpecies.forEach(function(species) {
+            species.classList.remove('highlighted');
+        });
+        // Add highlight to the matched species
+        matchedSpecies.forEach(function(species) {
+            var speciesCard = document.getElementById(species);
+            speciesCard.classList.add('highlighted');
+            // Scroll to the first matched species
+            speciesCard.scrollIntoView({ behavior: 'smooth' });
+        });
+    } else {
+        searchResult.innerText = 'No matching species found.';
+    }
+}
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSpotter - Explore Biodiversity</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><img src="BIOSPOTTER.jpg" alt="BioSpotter Logo"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="http://127.0.0.1:5000">Species</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="discussion.html">Discussion</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="signin.html">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h2>Revolutionize <br> your Wildlife </br>  Spotting Adventures!</h2>
+            <p>DISCOVER. WILDLIFE. HERITAGE.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-info">
+                <h2>About Us</h2>
+                <p>Welcome to BioSpotter, where technology meets conservation. We're on a mission to make identifying wildlife easy and accessible for everyone. With our AI-powered platform, users can upload images of plants and animals they encounter, and instantly learn about the species. But BioSpotter is more than just a tool – it has a curated resource gallery, displaying information about 500+ species in the world, and a community hub, connecting nature lovers to share their wildlife adventures worldwide. Join us in celebrating and protecting the biodiversity of our planet's heritage sites.</p>
+            </div>
+            <div class="about-image">
+                <img src="about.avif" alt="About Us Image">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="service">
+                <div class="overlay">
+                    <a href="species.html" class="overlay-button">Species Identification</a>
+                </div>
+                <img src="species.jpg" alt="Species">
+                <h3>Species Identification</h3>
+                <p>Capture nature's wonders and uncover their secrets with a simple click.</p>
+            </div>
+            <div class="service">
+                <div class="overlay">
+                    <a href="gallery.html" class="overlay-button">Species Gallery</a>
+                </div>
+                <img src="gallery.jpg" alt="Gallery">
+                <h3>Species Gallery</h3>
+                <p>Explore a world of biodiversity through our carefully curated species showcase.</p>
+            </div>
+            <div class="service">
+                <div class="overlay">
+                    <a href="discussion.html" class="overlay-button">Discussion Forum</a>
+                </div>
+                <img src="discussion.jpg" alt="Discussion">
+                <h3>Discussion Forum</h3>
+                <p>Connect with fellow explorers, share your wildlife encounters, and be part of the community.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Have a question or want to get in touch? <br>Fill out the form and we'll get back to you asap.</br></p>
+            <form class="contact-form">
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Your Email">
+                <textarea name="message" placeholder="Your Message"></textarea>
+                <input type="submit" value="Send Message">
+            </form>
+        </div>
+        <script>
+            window.embeddedChatbotConfig = {
+            chatbotId: "vGKama9BMb6Gs1hu18p4t",
+            domain: "www.chatbase.co"
+            }
+            </script>
+            <script
+            src="https://www.chatbase.co/embed.min.js"
+            chatbotId="0e4PjKSCRKQoc48bE006C"
+            domain="www.chatbase.co"
+            defer>
+            </script>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <p>&copy; 2024 BioSpotter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

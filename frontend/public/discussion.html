@@ -1,0 +1,493 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSpotter - Discussion</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('discussioni.jpg');
+            background-size: cover;
+            color: #333;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 0px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+.chat-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 20px;
+    margin: 100px auto; 
+    width: 80%; 
+    max-width: 600px; 
+}
+
+
+        #chat-window {
+            max-height: 300px;
+            overflow-y: scroll;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        #chat-messages {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #chat-messages li {
+            margin-bottom: 10px;
+        }
+
+        #message-input {
+            width: calc(100% - 70px);
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        #send-btn {
+            padding: 8px 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #send-btn:hover {
+            background-color: #388e3c;
+        }
+
+        footer {
+           position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 8px;
+        }
+
+        .socials {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><img src="BIOSPOTTER.jpg" alt="BioSpotter Logo"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="species.html">Species</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="discussion.html">Discussion</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#signin">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="discussion-section">
+            <div class="chat-container">
+                <div id="chat-window">
+                    <ul id="chat-messages">
+                        <li><span class="username">User1:</span> Hi, everyone!</li>
+                        <li><span class="username">User2:</span> Hello there!</li>
+                        <li><span class="username">User3:</span> Welcome!</li>
+                    </ul>
+                </div>
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <p>&copy; 2024 BioSpotter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Real-time chat functionality
+        function loadDiscussionSection() {
+            const socket = io();
+            const chatMessages = document.getElementById('chat-messages');
+            const messageInput = document.getElementById('message-input');
+            const sendBtn = document.getElementById('send-btn');
+
+            sendBtn.addEventListener('click', function() {
+                const message = messageInput.value.trim();
+                if (message !== '') {
+                    appendMessage('You', message);
+                    socket.emit('new message', message);
+                    messageInput.value = '';
+                }
+            });
+
+            socket.on('new message', function(data) {
+                appendMessage(data.username, data.message);
+            });
+
+            function appendMessage(username, message) {
+                const li = document.createElement('li');
+                li.textContent = `${username}: ${message}`;
+                chatMessages.appendChild(li);
+            }
+        }
+
+        // Load discussion section with real-time chat functionality
+        loadDiscussionSection();
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSpotter - Discussion Board</title>
+    <style>
+        /* Global styles */
+        /* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('discussioni.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 0px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.discussion-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 100px auto;
+    max-width: 800px;
+    width: 90%;
+    text-align: center;
+}
+
+.discussion-heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ff0066; /* Funky pink */
+}
+
+.discussion-description {
+    margin-bottom: 20px;
+}
+
+.post {
+    background-color: #f9f9f9; /* Light gray */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post-username {
+    font-weight: bold;
+    color: #ff9933; /* Funky orange */
+}
+
+.post-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.post-caption {
+    font-style: italic;
+    color: #666; /* Dark gray */
+    margin-bottom: 10px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-actions button {
+    background-color: #ff3300; /* Funky red */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-actions button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+.comments {
+    text-align: left;
+}
+
+.comment {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.comment-username {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #414040; /* Funky blue */
+}
+
+.comment-text {
+    margin-bottom: 0;
+}
+
+.comment-input {
+    width: calc(100% - 80px);
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.comment-submit {
+    background-color: #ff3300; /* Funky red */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-submit:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+    border-radius: 8px;
+}
+
+.socials {
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><img src="BIOSPOTTER.jpg" alt="BioSpotter Logo"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="species.html">Species</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="discussion.html">Discussion</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#signin">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="discussion-container">
+        <div class="discussion-heading">Discussion Board</div>
+        <div class="discussion-description">
+            <p>Share your wildlife encounters and explore others' experiences.</p>
+        </div>
+        
+        <div class="post">
+            <div class="post-header">
+                <img class="post-user-image" src="person1.jpg" alt="User Image">
+                <span class="post-username">Ayush Singh</span>
+            </div>
+            <img class="post-image" src="image.jpg" alt="Wildlife Encounter">
+            <div class="post-caption">A wonderful day in the woods!</div>
+            <div class="post-actions">
+                <button>Like</button>
+                <button>Comment</button>
+            </div>
+            <!-- Comments section (displayed when comments are available) -->
+            <div class="comments">
+                <!-- Sample comments -->
+                <div class="comment">
+                    <span class="comment-username"><img class="post-user-image" src="person2.jpg" alt="User Image">
+                        <span class="post-username">Priya Verma</span>
+                    <p class="comment-text">Nice encounter! Looking forward to going there.</p>
+                </div>
+                <div class="comment">
+                    <span class="comment-username"><img class="post-user-image" src="person3.jpg" alt="User Image">
+                        <span class="post-username">Navya Sharma</span>
+                    <p class="comment-text">Amazing photo! Must have been exciting.</p>
+                </div>
+                <!-- Comment input box for current user -->
+                <div class="comment">
+                    <input type="text" class="comment-input" placeholder="Write a comment...">
+                    <button class="comment-submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add more posts as needed -->
+        
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <p>&copy; 2024 BioSpotter. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

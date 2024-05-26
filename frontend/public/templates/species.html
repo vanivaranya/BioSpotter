@@ -1,0 +1,503 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BioSpotter - Species Identification</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('speciesi.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 0px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .species-container {
+            /* margin-top: 20px; */
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 100px auto;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .heading {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .upload-container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .upload-form input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        .upload-form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-form input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .result {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            display: none;
+        }
+
+        .result p {
+            margin-bottom: 10px;
+        }
+
+        .view-result {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        .view-result:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .socials {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><img src="BIOSPOTTER.jpg" alt="BioSpotter Logo"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="species.html">Species</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="discussion.html">Discussion</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#signin">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="species-container">
+        <div class="heading">Species Identification</div>
+        <div class="description">
+            <p>Upload an image below to identify the species.</p>
+        </div>
+        <div class="upload-container">
+            <form class="upload-form" id="uploadForm">
+                <input type="file" id="fileInput" accept="image/*">
+                <input type="submit" value="Upload Image">
+                <p id="uploadMsg"></p>
+            </form>
+            <button class="view-result" id="viewResult">View Result</button>
+        </div>
+        <div class="result" id="resultDisplay">
+            <p id="speciesName"></p>
+            <p id="speciesDetails"></p>
+        </div>
+        <p id="resultMsg"></p>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <p>&copy; 2024 BioSpotter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for species identification page
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var fileInput = document.getElementById('fileInput');
+            var resultDisplay = document.getElementById('resultDisplay');
+            var uploadMsg = document.getElementById('uploadMsg');
+            var viewResultBtn = document.getElementById('viewResult');
+            var resultMsg = document.getElementById('resultMsg');
+            var formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+            // Simulating upload process
+            uploadMsg.innerText = 'Uploading image...';
+            setTimeout(function() {
+                // Simulating successful upload
+                uploadMsg.innerText = 'Image uploaded successfully.';
+                viewResultBtn.style.display = 'inline-block';
+            }, 2000);
+        });
+
+        document.getElementById('viewResult').addEventListener('click', function() {
+    var resultDisplay = document.getElementById('resultDisplay');
+    var resultMsg = document.getElementById('resultMsg');
+    // Simulating model prediction
+    var randomSpecies = 'Tiger'; // Replace with actual prediction
+    var speciesDetails = 'Species details'; // Replace with actual species details
+    document.getElementById('speciesName').innerText = 'Name: ' + randomSpecies;
+    document.getElementById('speciesDetails').innerText = 'Details: ' + speciesDetails;
+    // resultMsg.innerText = 'Viewed result for ' + randomSpecies + '.';
+    resultDisplay.style.display = 'block'; // Display the result
+});
+
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Classifier</title>
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/speciesi.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 0px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .species-container {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 100px auto;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .heading {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            margin-bottom: 20px;
+        }
+
+        .upload-container {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .upload-form input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        .upload-form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .upload-form input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .result {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            display: none;
+        }
+
+        .result p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .socials {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+        }
+
+        #uploaded-image {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><img src="/static/BIOSPOTTER.jpg" alt="BioSpotter Logo"></h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="http://127.0.0.1:5000">Species</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="discussion.html">Discussion</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#signin">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="species-container">
+        <div class="heading">Species Identification</div>
+        <div class="description">
+            <p>Upload an image below to identify the species.</p>
+        </div>
+        <div class="upload-container">
+            <form class="upload-form" id="upload-form" enctype="multipart/form-data">
+                <input type="file" id="file-input" accept="image/*">
+                <input type="submit" value="Upload Image">
+                <p id="uploadMsg"></p>
+            </form>
+        </div>
+        <img id="uploaded-image" src="#" alt="Uploaded Image">
+        <div class="result" id="resultDisplay">
+            <p id="prediction-result"></p>
+            <p id="animal-info"></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+            <p>&copy; 2024 BioSpotter. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var fileInput = document.getElementById('file-input');
+            var uploadedImage = document.getElementById('uploaded-image');
+            var uploadMsg = document.getElementById('uploadMsg');
+            var resultDisplay = document.getElementById('resultDisplay');
+            var formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            // Display the uploaded image
+            if (fileInput.files[0]) {
+                uploadedImage.style.display = 'block';
+                uploadedImage.src = URL.createObjectURL(fileInput.files[0]);
+            } else {
+                uploadedImage.style.display = 'none';
+            }
+
+            // Simulating upload process
+            uploadMsg.innerText = 'Uploading image...';
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                uploadMsg.innerText = 'Image uploaded successfully.';
+                if (data.error) {
+                    document.getElementById('prediction-result').innerText = `Error: ${data.error}`;
+                    resultDisplay.style.display = 'none';
+                } else {
+                    document.getElementById('prediction-result').innerText = `This is ${data.prediction}`;
+                    var animalInfo = '';
+                    if (data.prediction === 'seal') {
+                        document.getElementById('animal-info').innerText = "Seals are semiaquatic marine mammals. They are characterized by their streamlined body, flippers, and ability to live both on land and in water.";
+                    }
+                    else if (data.prediction === 'squid') {
+                        animalInfo = "Squids are cephalopods known for their elongated bodies, eight arms, and two tentacles, equipped with powerful suckers used for capturing prey.";
+                    } else if (data.prediction === 'dog') {
+                        animalInfo = "Dogs are domesticated mammals, not natural wild animals. They were originally bred from wolves. They have been bred by humans for a long time, and were the first animals ever to be domesticated.";
+                    } else if (data.prediction === 'cat') {
+                        animalInfo = "Cats are domesticated mammals, not natural wild animals. They were originally bred from wild cats. They are known for their playful behavior, hunting instincts, and independent nature.";
+                    } else {
+                        animalInfo = "Information about this animal is not available.";
+                    }
+                    document.getElementById('animal-info').innerText = animalInfo;
+                    resultDisplay.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                uploadMsg.innerText = 'An error occurred during the upload.';
+                resultDisplay.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
