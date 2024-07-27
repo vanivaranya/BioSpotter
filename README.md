@@ -15,17 +15,18 @@ The chatbot serves as a real time virtual guide, offering users personalized rec
 ## IMPLEMENTATION
 ![Species](https://github.com/tanya-2004/BioSpotter/assets/120239668/1c2f6fdf-b4b7-4d89-a2be-ed7f5a8f423e)
 
-## TECH STACKS
-HTML, CSS, JS for website frontend
-Python ML model CNN
-Tensorflow framework
-Flask as web app framework
-MongoDB for database
-NodeJS and ExpressJS for server
-Socket.io for discussion section
+## TECH STACK
+HTML, CSS, JavaScript for website frontend <br>
+Python Tensorflow CNN model <br>
+Flask as web app framework <br>
+MongoDB for database <br>
+NodeJS and ExpressJS for server <br>
+Socket.io for discussion section <br>
 ChatBot API
 
-## SCREENSHOTS
+## Website
+[Demo Video](https://www.loom.com/share/622f4f5a2cc14f0d8c46db139ca58fe3?sid=ff2710d9-e23c-45ba-8c8c-1f39c2c3a123) <br> <br>
+
 ![species png](https://github.com/tanya-2004/BioSpotter/assets/120239668/cdb94997-25f5-407f-8828-f773d1938c34)
 ![gallery](https://github.com/tanya-2004/BioSpotter/assets/120239668/3d5f67b1-0c10-4fa8-8424-f3ac06d2fa5d)
 ![chatbot](https://github.com/tanya-2004/BioSpotter/assets/120239668/3158786a-a1a8-44d0-9e1f-3b5587018e06)
